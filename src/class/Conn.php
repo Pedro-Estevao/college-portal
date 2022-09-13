@@ -14,7 +14,7 @@
                 }
                 catch(Exception $e)
                 {
-                    include('pages/erroConexao.php');
+                    include('src/pages/connError.php');
                     die();
                 }
             }

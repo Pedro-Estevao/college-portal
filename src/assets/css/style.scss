@@ -1,0 +1,1033 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: #444;
+    background: #fff;
+
+    &.menu-mobile-expanded {
+        padding-right: 15px;
+        overflow: hidden;
+    }
+}
+
+.ad {
+    &-content {
+        &--header {
+
+        }
+
+        &--main {
+
+        }
+
+        &--login {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 95%;
+            max-width: 600px;
+            padding: 40px 2%;
+            background: #fff;
+            color: #4d4d4f;
+            // box-shadow: 30px 30px 10px rgb(0 0 0 / 50%);
+            box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 50%);
+            overflow: hidden;
+            border-radius: 10px;
+            transform: translate(-50%,-50%);
+        }
+
+        &__header {
+            // display: flex;
+            // align-items: center;
+            // justify-content: flex-start;
+            // padding: 0 4rem;
+            // height: 139px;
+            position: relative;
+            display: flex;
+            width: 100%;
+            z-index: 10;
+            
+            &-logo {
+                display: block;
+                height: 80px;
+            }
+
+            &-wrapper {
+                display: flex;
+                width: 100%;
+                max-width: 980px;
+                margin: 0 auto;
+
+                &__logo {
+                    display: block;
+                    float: left;
+                    margin: 20px 0;
+
+                    &-img {
+                        width: 215px;
+                        transition: .3s;
+                        top: 5px;
+
+                        @media (max-width: 767px) {
+                            width: 165px;
+                        }
+                    }
+                    &--link {
+                        display: flex;
+                        color: #000000;
+                        text-decoration: none;
+                    }
+                }
+
+                &__menu {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    list-style: none;
+                    width: 100%;
+
+                    &--item {
+                        margin-right: 25px;
+
+                        &.desktop {
+                            @media (min-width: 768px) {
+                                display: block;
+                            }
+
+                            @media (max-width: 767px) {
+                                display: none;
+                            }
+                        }
+                        &.mobile {
+                            @media (min-width: 768px) {
+                                display: none;
+                            }
+
+                            @media (max-width: 767px) {
+                                display: block;
+                            }
+                        }
+
+                        &-link {
+                            color: #444;
+                            font-size: 16px;
+                            font-weight: bold;
+                            text-decoration: none;
+                            cursor: pointer;
+
+                            i {
+                                font-size: 20pt;
+                            }
+
+                            &:hover {
+                                color: #707070;
+                            }
+                        }
+                    }
+
+                    &--mobile {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 100%;
+
+                        &-background {
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            background-color: #1c1c1c;
+                            opacity: 0.75;
+                        }
+                        &-box {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: space-around;
+                            background: #fff;
+                            color: #4d4d4f;
+                            box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 50%);
+                            overflow: hidden;
+                            border-radius: 10px;
+                            width: 100%;
+                            max-width: 300px;
+                            padding: 20px;
+                            margin: auto;
+
+                            .ad-content__header-wrapper__menu--item {
+                                margin: 0;
+                            }
+
+                            &__header {
+                                position: relative;
+                                display: flex;
+                                width: 100%;
+                                align-items: center;
+                                justify-content: center;
+                                margin-bottom: 20px;
+
+                                &--title {
+                                    margin-bottom: 0;
+                                    text-transform: uppercase;
+                                }
+                                &--btn {
+                                    &-close {
+                                        position: absolute;
+                                        right: 0;
+                                        cursor: pointer;
+                                        font-size: 20pt;
+                                        margin-right: 15px;
+                                    }
+                                }
+                            }
+
+                            &__main {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                width: 100%;
+
+                                .mobile {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    width: 100%;
+                                    padding: 10px;
+                                }
+                            }
+                        }
+                    }
+
+                    &--divisor {
+
+                    }
+                }
+            }
+        }
+
+        &__main {
+            &-wrapper {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-around;
+                background: #fff;
+                color: #4d4d4f;
+                box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 50%);
+                overflow: hidden;
+                border-radius: 10px;
+                width: 95%;
+                max-width: 729px;
+                padding: 40px;
+                margin: auto;
+                margin-top: 2rem;
+
+                &.errorConection {
+                    width: auto;
+                }
+
+                &__delimiter {
+                    height: 100rem;
+                    max-height: 242px;
+                    width: 3px;
+                    align-self: center;
+                    background-color: #222222;
+                    border-radius: 3px;
+
+                    @media (max-width: 767px) {
+                        height: 3px;
+                        width: 80%;
+                        margin: 40px 0;
+                    }
+                }
+
+                &__area {
+                    min-height: 252px;
+
+                    &--title {
+                        margin-bottom: 30px;
+                        text-align: center;
+                    }
+
+                    &--form {
+                        &.form-file {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            height: 100%;
+
+                            &--group {
+                                margin-top: 25px;
+                            }
+
+                            .cnpj-pdf {
+                                margin-top: 0;
+                            }
+
+                            // #upload-pdf-btn {
+                            //     margin: 0;
+                            // }
+                        }
+
+                        &__upload-pdf {
+                            position: relative;
+                            height: 115px;
+                            display: flex;
+                            cursor: pointer;
+                            margin: 0;
+                            align-items: center;
+                            justify-content: center;
+                            flex-direction: column;
+                            background-color: #fff;
+                            border-radius: 5px;
+                            border: 2px dashed #6990F2;
+                            transition: all 0.25s;
+
+                            &:where(i, p) {
+                                color: #6990F2;
+                            }
+                            i {
+                                font-size: 50px;
+                                transition: all 0.25s;
+                            }
+                            p {
+                                margin-top: 15px;
+                                margin-bottom: 0;
+                                font-size: 16px;
+                                transition: all 0.25s;
+                            }
+
+                            &--input {
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                                z-index: -1;
+                            }
+
+                            &.selected {
+                                flex-direction: row;
+                                height: 51px;
+                                padding: 10px;
+                                justify-content: flex-start;
+                                transition: all 0.25s;
+
+                                input[type="file"] {
+                                    width: 90%;
+                                }
+                                i {
+                                    font-size: 30px;
+                                    transition: all 0.25s;
+                                }
+                                p {
+                                    margin: 0;
+                                    margin-left: 10px;
+                                    line-height: normal;
+                                    transition: all 0.25s;
+                                }
+                            }
+                        }
+
+                        &-group {
+                            &--input {
+                                position: relative;
+                                width: 100%;
+                                max-width: 280px;
+                                margin: 0 auto;
+                                margin-top: 25px;
+            
+                                &-label {
+                                    position: absolute;
+                                    left: 10px;
+                                    top: -10px;
+                                    transition: all 0.2s;
+                                    padding: 0 5px;
+                                    z-index: 1;
+                                    color: #444;
+                                    font-size: 14px;
+                                    font-weight: 900;
+                                    // color: #b3b3b3;
+            
+                                    &::before {
+                                        content: "";
+                                        position: absolute;
+                                        height: 5px;
+                                        background: #fff;
+                                        left: 0px;
+                                        top: 9px;
+                                        width: 100%;
+                                        z-index: -1;
+                                    }
+                                }
+                                &-text {
+                                    padding: 0.8rem;
+                                    width: 100%;
+                                    height: 100%;
+                                    border: 2px solid #707070;
+                                    background: #fff;
+                                    border-radius: 5px;
+                                    font-size: 18px;
+                                    outline: none;
+                                    transition: all 0.3s;
+                                    color: #444;
+            
+                                    &:focus {
+                                        border: 2px solid #2f2c45;
+
+                                        + label {
+                                            color: #444;
+                                        }
+                                    }
+                                    &::placeholder {
+                                        font-size: 16px;
+                                        opacity: 1;
+                                        transition: all 0.3s;
+                                    }
+                                    &:focus::placeholder {
+                                        opacity: 1;
+                                    }
+                                    &:-webkit-autofill,
+                                    &:-webkit-autofill:hover, 
+                                    &:-webkit-autofill:focus, 
+                                    &:-webkit-autofill:active {
+                                        -webkit-box-shadow: 0 0 0 60px rgb(255 255 255) inset !important;
+                                        box-shadow: 0 0 0 60px rgb(255 255 255) inset !important;
+                                        -webkit-text-fill-color: #444 !important;
+                                        caret-color: #444;
+                                    }
+                                }
+            
+                                @media (max-width: 350px) {
+                                    max-width: 235px;
+                                }
+                            }
+
+                            &--footer {
+
+                            }
+            
+                            &--submit {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin: 35px auto 0;
+                                width: 250px;
+                                height: 40px;
+                                border: none;
+                                border-radius: 5px;
+                                background-color: #222222;
+                                color: #fff;
+            
+                                @media (max-width: 350px) {
+                                    max-width: 195px;
+                                }
+                            }
+                        }
+                    }
+
+                    &--fileUpload {
+                        &.uploaded {
+                            max-height: 232px;
+                            margin-top: 10px;
+
+                            &.onprogress {
+                                max-height: 150px;
+                            }
+
+                            .row {
+                                background: #E9F0FF;
+                                list-style: none;
+                                padding: 15px 8px;
+                                margin: 0;
+                                border-radius: 5px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+
+                                .content {
+                                    display: flex;
+                                    align-items: center;
+                                    width: 100%;
+                                    max-width: 193px;
+                                }
+
+                                i {
+                                    color: #6990F2;
+                                    font-size: 30px;
+
+                                    &.fa-check {
+                                        font-size: 16px;
+                                        width: auto;
+                                    }
+                                }
+
+                                .details {
+                                    display: flex;
+                                    margin-left: 15px;
+                                    flex-direction: column;
+                                    width: 100%;
+                                    max-width: 141px;
+
+                                    span {
+                                        font-size: 14px;
+                                    }
+
+                                    .name {
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                    }
+                                    .size {
+                                        color: #404040;
+                                        font-size: 11px;
+                                        line-height: normal;
+                                    }
+                                }
+                            }
+
+                            &::-webkit-scrollbar {
+                                width: 0px;
+                            }
+
+                            .input-file--invalid-alert {
+                                text-align: center;
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+
+                    &.cliente-list {
+                        height: 100%;
+                        width: 100%;
+
+                        #tabela-cliente_wrapper {
+                            .row {
+                                margin: 0;
+
+                                &:nth-child(1) {
+                                    display: grid;
+                                    grid-template-areas: "show search cad";
+                                    grid-template-columns: 33% 37% 30%;
+                                    background-color: #1c1c1c21;
+                                    padding: 15px 10px 15px;
+                                    border: none;
+
+                                    div {
+                                        &.col-sm-12 {
+                                            width: 100%;
+
+                                            &:nth-child(1) {
+                                                display: flex;
+                                                grid-area: show;
+                                            }
+                                            &:nth-child(2) {
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: flex-start;
+                                                grid-area: search;
+
+                                                .dataTables_filter {
+                                                    width: 100%;
+
+                                                    label {
+                                                        position: relative;
+                                                        display: flex;
+                                                        align-items: center;
+                                                        justify-content: flex-start;
+
+                                                        // i {
+                                                        //     position: absolute;
+                                                        //     right: 0;
+                                                        //     margin-right: 10px;
+                                                        // }
+                                                        input {
+                                                            width: 100%;
+                                                            // margin: 0;
+                                                            // padding-right: 10px;
+                                                        }
+                                                    }
+                                                }
+
+                                                @media (max-width: 575px) {
+                                                    margin-bottom: 15px;
+                                                }
+                                            }
+                                            &:nth-child(3) {
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: flex-end;
+                                                grid-area: cad;
+
+                                                .btn-cadastro-cliente {
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    line-height: normal;
+                                                    height: 31px;
+                                                    width: 140px;
+                                                    background-color: #222222;
+                                                    border: none;
+                                                    color: #fff;
+
+                                                    @media (max-width: 767px) {
+                                                        width: 100%;
+                                                        height: 35px;
+                                                        margin-bottom: 15px;
+                                                    }
+                                                    @media (max-width: 575px) {
+
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    @media (max-width: 767px) {
+                                        grid-template-areas: "cad cad" "show search";
+                                        grid-template-columns: repeat(2,1fr);
+                                    }
+                                    @media (max-width: 575px) {
+                                        grid-template-areas: "cad" "search" "show";
+                                        grid-template-columns: repeat(1,1fr);      
+                                    }
+                                }
+
+                                &:nth-child(2) {
+                                    div.col-sm-12 {
+                                        overflow: auto;
+
+                                        #tabela-cliente {
+                                            thead {
+                                                tr {
+                                                    td {
+                                                        &:nth-child(1) {
+                                                            width: 319px !important;
+                                                        }
+                                                        &:nth-child(2) {
+                                                            width: 178px !important;
+                                                        }
+                                                        &:nth-child(3) {
+                                                            width: 107px !important;
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            tr {
+                                                td {
+                                                    vertical-align: middle;
+    
+                                                    &:nth-child(3) {
+                                                        text-align: center;
+                                                    }
+                                                }
+                                            }
+
+                                            @media (max-width: 767px) {
+                                                width: 650px !important;
+                                            }
+                                        }
+
+                                        @media (max-width: 767px) {
+                                            padding: 0;
+                                        }
+                                    }
+
+                                    @media (max-width: 767px) {
+                                        padding: 0 12px;
+                                    }
+                                }
+
+                                &:nth-child(3) {
+                                    margin: 10px 0 15px;
+                                }
+                            }
+                        }
+                    }
+
+                    &.errorConection {
+                        .errorConection {
+                            &-content {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                flex-direction: column;
+                                margin-top: 2.5rem;
+
+                                &--text {
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.verificaAcesso {
+                    @media (max-width: 767px) {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        margin: 0;
+                    }
+                }
+
+                &.cliente-list {
+                    padding: 0;
+
+                    @media (min-width: 768px) {
+                        position: relative;
+                        top: auto;
+                        left: auto;
+                        transform: inherit;
+                        align-items: center;
+                        margin-top: 5rem;
+                        margin-bottom: 5rem;
+                        flex-direction: column;
+                    }
+                }
+
+                @media (max-width: 767px) {
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                    transform: inherit;
+                    align-items: center;
+                    margin-top: 3rem;
+                    margin-bottom: 5rem;
+                    flex-direction: column;
+                }
+            }
+
+            @media (max-width: 399px) {
+                padding: 0 !important;
+            }
+        }
+    }
+
+    &-login {
+        &--title {
+            
+        }
+        &--form {
+            &-group {
+                &--input {
+                    position: relative;
+                    width: 100%;
+                    max-width: 280px;
+                    margin: 0 auto;
+                    margin-top: 25px;
+
+                    &-label {
+                        position: absolute;
+                        left: 10px;
+                        top: -10px;
+                        transition: all 0.2s;
+                        padding: 0 5px;
+                        z-index: 1;
+                        color: #444;
+                        font-size: 14px;
+                        font-weight: 900;
+                        // color: #b3b3b3;
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            height: 5px;
+                            background: #fff;
+                            left: 0px;
+                            top: 9px;
+                            width: 100%;
+                            z-index: -1;
+                        }
+                    }
+                    &-text {
+                        padding: 0.8rem;
+                        width: 100%;
+                        height: 100%;
+                        border: 2px solid #707070;
+                        background: #fff;
+                        border-radius: 5px;
+                        font-size: 18px;
+                        outline: none;
+                        transition: all 0.3s;
+                        color: #444;
+
+                        &:focus {
+                            border: 2px solid #2f2c45;
+
+                            + label {
+                                color: #444;
+                            }
+                        }
+                        &::placeholder {
+                            font-size: 16px;
+                            opacity: 1;
+                            transition: all 0.3s;
+                        }
+                        &:focus::placeholder {
+                            opacity: 1;
+                        }
+                        &:-webkit-autofill,
+                        &:-webkit-autofill:hover, 
+                        &:-webkit-autofill:focus, 
+                        &:-webkit-autofill:active {
+                            -webkit-box-shadow: 0 0 0 60px rgb(255 255 255) inset !important;
+                            box-shadow: 0 0 0 60px rgb(255 255 255) inset !important;
+                            -webkit-text-fill-color: #444 !important;
+                            caret-color: #444;
+                        }
+                    }
+
+                    @media (max-width: 350px) {
+                        max-width: 235px;
+                    }
+                }
+
+                &--options {
+                    padding: 15px;
+                    display: flex;
+                    margin-top: 5px;
+
+                    &-checkbox {
+                        margin: auto;
+                        display: block;
+                        width: auto;
+                        font-weight: 500;
+
+                        &--input {
+                            display: none;
+                        }
+
+                        @media (max-width: 350px) {
+                            font-size: 0.9rem;
+                        }
+                    }
+
+                    &-checkbox--input + &-checkbox::before {
+                        content: '';
+                        width: 18px;
+                        height: 18px;
+                        border-radius: 4px;
+                        background-color: transparent;
+                        border: 2px solid #707070;
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin-right: 8px;
+                        margin-bottom: 3px;
+
+                        @media (max-width: 350px) {
+                            margin-right: 3px;
+                        }
+                    }
+
+                    &-checkbox--input:checked + &-checkbox::before {
+                        background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 10 10'%3E%3Cg class='nc-icon-wrapper' stroke-width='1' fill='%232f2c45'%3E%3Cpath fill='none' stroke='%232f2c45' stroke-lenecap='round' stroke-linejoin='round' stroke-miterlimit='10' data-cap='butt' d='M2.83 4.72l1.58 1.58 2.83-2.83'/%3E%3C/g%3E%3C/svg%3E");
+                        background-color: transparent;
+                        background-position: center;
+                        border: 2px solid #2f2c45;
+                    }
+
+                    &-recPass {
+                        cursor: pointer;
+                        color: #4d4d4f !important;
+                        font-weight: 500;
+                        text-decoration: none;
+                        margin: auto;
+                        display: block;
+                        width: auto;
+
+                        @media (max-width: 350px) {
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+
+                &--submit {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 10px auto 0;
+                    width: 250px;
+                    height: 40px;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: #222222;
+                    color: #fff;
+
+                    @media (max-width: 350px) {
+                        max-width: 195px;
+                    }
+                }
+            }
+        }
+    }
+
+    &-modal {
+        &--recPass {
+            .modal-body {
+                padding: 1rem 9%;
+
+                p {
+                    line-height: 21px;
+                    margin-bottom: 0;
+                }
+
+                .ad-login--form-group--input {
+                    margin: 25px auto;
+                }
+            }
+            .modal-footer {
+                justify-content: space-between;
+
+                button {
+                    &.rec {
+                        background-color: #222222;
+                        border-color: #222222;
+                        box-shadow: none;
+                        outline: none;
+                    }
+                    &.cancel {
+                        box-shadow: none;
+                        outline: none;
+                    }
+                }
+            }
+        }
+
+        &--cad {
+            &-cliente {
+                position: fixed;
+                top: 0;
+                left: 0;
+                display: none;
+                height: 100%;
+                width: 100%;
+                z-index: 1000;
+                transition: ease 0.25s;
+
+                &__shadowBackground {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #1c1c1c;
+                    opacity: 0.75;
+                }
+
+                &__main {
+                    &-wrapper {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: center;
+                        background: #fff;
+                        color: #4d4d4f;
+                        box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 50%);
+                        overflow: hidden;
+                        border-radius: 10px;
+                        width: 95%;
+                        max-width: 729px;
+                        padding: 40px;
+                        margin: auto;
+                        margin-top: 2rem;
+
+                        #btn-close-modal-cadCliente {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            margin: 1rem 1rem 0 0;
+                            padding: 10px;
+                            font-size: 18pt;
+                            line-height: normal;
+                            cursor: pointer;
+
+                            i {
+                                line-height: normal;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container {
+    @media (max-width: 991px) {
+        max-width: none;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+::selection{
+    color: #fff;
+    background: #6990F2;
+}
+
+.input-alert {
+    border-color: #dc3545;
+}
+.label-alert {
+    color: #dc3545;
+}
+.text-validation-alert {
+    position: absolute;
+    bottom: -19px;
+    margin-bottom: 0;
+    font-size: 10pt;
+    color: #dc3545;
+    text-align: center;
+    width: 100%;
+}
+.alert {
+    &-form {
+        &-sucesso, &-erro, &-alerta {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 10pt;
+            padding: 10px 15px;
+            animation: fadeinout 8s linear forwards;
+            z-index: 11;
+
+            span {
+                i {
+                    margin-right: 10px;
+                }
+            }
+        }
+        &-sucesso {
+            background-color: #08b74b;
+        }
+        &-erro {
+            background-color: #f93737;
+        }
+        &-alerta {
+            background-color: darkorange;
+        }
+    }
+}
+
+@keyframes fadeinout {
+    0% { opacity: 0; }
+    5%, 90% { opacity: 1; }
+    100% { opacity: 0; }
+}
