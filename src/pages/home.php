@@ -38,8 +38,8 @@
         <header class="ad-content__header container">
             <div class="ad-content__header-wrapper">
                 <div class="ad-content__header-wrapper__logo">
-                    <a class="ad-content__header-wrapper__logo--link"rel="nofollow" href="<?php echo INCLUDE_PATH; ?>" title="Voltar a página inicial">
-                        <img class="ad-content__header-wrapper__logo-img" src="<?php echo INCLUDE_PATH; ?>src/assets/img/logo.png" alt="Especializada em Toldos, Cortinas, Motorização e Automação - AD- Lux" title="Especializada em Toldos, Cortinas, Motorização e Automação - AD- Lux">
+                    <a class="ad-content__header-wrapper__logo--link" rel="nofollow" href="<?php echo INCLUDE_PATH; ?>" title="Voltar a página inicial">
+                        <img class="ad-content__header-wrapper__logo-img" src="<?php echo INCLUDE_PATH; ?>src/assets/img/logo-extend.webp" alt="Universidade Barão de Mauá" title="Universidade Barão de Mauá">
                     </a>
                 </div>
                 <div class="ad-content__header-wrapper__menu">
@@ -99,48 +99,13 @@
         }
     ?>
 
-    <div class="ad-content--main">
-        <div class="ad-content__main container">
-            <div class="ad-content__main-wrapper">
-                <div class="ad-content__main-wrapper__area">
-                    <h5 class="ad-content__main-wrapper__area--title">Cadastrar Cliente <?php echo $category; ?></h5>
-                    <form class="ad-content__main-wrapper__area--form" id="cliente-form" method="POST">    
-                        <div class="ad-content__main-wrapper__area--form-group--input">
-                            <input type="text" id="cliente-nome" name="cliente-nome" class="ad-content__main-wrapper__area--form-group--input-text" placeholder="Informe o nome" required />
-                            <label for="cliente-nome" class="ad-content__main-wrapper__area--form-group--input-label">Nome</label>
-                        </div>
-                        <div class="ad-content__main-wrapper__area--form-group--input">
-                            <input type="text" id="cliente-cnpj" name="cliente-cnpj" class="ad-content__main-wrapper__area--form-group--input-text" minlength="14" data-mask="00.000.000/0000-00" data-mask-reverse="true" placeholder="Informe o CNPJ" required />
-                            <label for="cliente-cnpj" class="ad-content__main-wrapper__area--form-group--input-label">CNPJ</label>
-                            <p class="d-none text-validation-alert" id="text-validation-alert">CNPJ inválido</p>
-                        </div>
-                        <div class="ad-content__main-wrapper__area--form-group--input">
-                            <input type="password" id="cliente-pass" name="cliente-pass" class="ad-content__main-wrapper__area--form-group--input-text" placeholder="Informe a senha" required />
-                            <label for="cliente-pass" class="ad-content__main-wrapper__area--form-group--input-label">Senha</label>
-                        </div>
-                        <div class="ad-content__main-wrapper__area--form-group--footer form-group">
-                            <button class="ad-content__main-wrapper__area--form-group--submit" name="btn-cadastrar-cliente" type="submit">Cadastrar</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="ad-content__main-wrapper__delimiter"></div>
-                <div class="ad-content__main-wrapper__area">
-                    <h5 class="ad-content__main-wrapper__area--title">Enviar PDF</h5>    
-                    <form class="ad-content__main-wrapper__area--form form-file" id="upload-pdf-form" method="POST" enctype="multipart/form-data">
-                        <div class="ad-content__main-wrapper__area--form form-file--group">
-                            <div class="ad-content__main-wrapper__area--form__upload-pdf">
-                                <input type="file" id="pdf-file" name="pdf-file" class="ad-content__main-wrapper__area--form__upload-pdf--input" accept="application/pdf" required>
-                                <i class="fas fa-cloud-upload-alt"></i>
-                                <p>Enviar PDF</p>
-                            </div>
-                            <div class="ad-content__main-wrapper__area--fileUpload uploaded"></div>
-                        </div>
-                        
-                        <div class="ad-content__main-wrapper__area--form-group--footer form-group">
-                            <button class="ad-content__main-wrapper__area--form-group--submit" name="btn-cadastrar-pdf" type="submit" id="upload-pdf-btn">Enviar</button>
-                        </div>
-                    </form>
-                </div>
+    <div class="">
+        <div class="container">
+            <div class="">
+                <div class="card" style="height: 180px; width: 20rem;"></div>
+                <div class="card" style="height: 180px; width: 20rem;"></div>
+                <div class="card" style="height: 180px; width: 20rem;"></div>
+                <div class="card" style="height: 180px; width: 20rem;"></div>
             </div>
         </div>
     </div>
@@ -154,6 +119,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
     <!-- Style JS -->
     <!-- <script type="text/javascript" src="<?php echo INCLUDE_PATH; ?>src/assets/js/file_input.js"></script> -->
     <script type="module" src="<?php echo INCLUDE_PATH; ?>src/assets/js/initialize-chartjs.js"></script>

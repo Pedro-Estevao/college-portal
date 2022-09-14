@@ -1,7 +1,5 @@
-import Chart from '../../../node_modules/chart.js/auto';
-
 const ctx = document.getElementById('myChart').getContext('2d');
-const chartAluno = new Chart(ctx, {
+const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],

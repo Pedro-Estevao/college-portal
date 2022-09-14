@@ -23,7 +23,7 @@
         <header class="ad-content__header container">
             <div class="ad-content__header-wrapper">
                 <div class="ad-content__header-wrapper__logo">
-                    <a class="ad-content__header-wrapper__logo--link"rel="nofollow" href="<?php echo INCLUDE_PATH; ?>" title="Voltar a página inicial">
+                    <a class="ad-content__header-wrapper__logo--link" rel="nofollow" href="<?php echo INCLUDE_PATH; ?>" title="Voltar a página inicial">
                         <img class="ad-content__header-wrapper__logo-img" src="<?php echo INCLUDE_PATH; ?>src/assets/img/logo-extend.webp" alt="Universidade Barão de Mauá" title="Universidade Barão de Mauá">
                     </a>
                 </div>
