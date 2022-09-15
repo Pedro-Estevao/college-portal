@@ -3,33 +3,41 @@
     1.2 Se existe redireciona para a página home.
 
 2. Ao logar, o conteúdo da home irá mudar, dependendo do cargo de quem acessa.
-    2.1 ADMIN:
-        - Quantidade de alunos matrículados na instituição;
-        - Quantidade de cursos;
-        - Quantidade de docentes;
-        - Gráfico de linhas mostrando o total de alunos matrículados na instituição em cada mês;
-        - [CRUD] Matrícula de novos alunos;
-        - [CRUD] Cadastro de novos docentes;
-        - [CRUD] Cadastro de cursos;
-        - Página de edição de perfil;
 
-    2.2 DOCENTES:
-        - Quantidade de cursos que ministra;
-        - Quantidade de alunos que ministra;
-        - Quantidade de alunos em DP;
-        - Gráfico de pizza mostrando o total de alunos em cada curso;
-        - Dar nota para trabalhos recebidos;
-        - Dar nota para provas de alunos.
-        - Listagem de cursos;
-        - Listagem de alunos;
-        - Página de edição de perfil;
+    2.1 DOCENTES:
+        - Menu
+            - Home;
+            - Matérias;
+            - Chat da sala;
+            - Ícone de notificações;
+            - Perfil[Imagem - Nome][Dropdown]
+                - Meu Perfil;
+                - Sair;
+        - Cards
+            - Quantidade de matérias que ministra;
+            - Quantidade de trabalhos recebidos para correção;
+            - Quantidade de alunos em DP;
+            - Criar trabalho;
+        - Body
+            - [Centro] Gráfico[Linha] mostrando a média de cada matéria ministrada;
+            - [Centro] Gráfico[Pizza] mostrando o total de alunos cadastrados em cada matéria;
+            - [Centro] Tabela dos trabalhos em aberto para correção;
 
-    2.3 ALUNOS:
-        - Total de matérias;
-        - Total de trabalhos em aberto;
-        - Enviar trabalhos;
-        - Gráfico de linha mostrando as notas das matérias em cada mês;
-        - Gerar Boletim;
-        - Página de edição de perfil;
-
-3. 
+    2.2 ALUNOS:
+        - Menu
+            - Home;
+            - Matérias;
+            - Chat da sala;
+            - Ícone de notificações;
+            - Perfil[Imagem - Nome][Dropdown]
+                - Meu Perfil;
+                - Sair;
+        - Cards
+            - Total de matérias cadastradas;
+            - Total de trabalhos em aberto;
+            - Data da próxima prova;
+            - Gerar Boletim;
+        - Body
+            - [Centro] Gráfico[Linha] mostrando a evolução mensal das notas de cada matéria[Trabalho - Prova];
+            - [Centro] Tabela dos trabalhos em aberto para entrega;
+            - [Lateral direita] Mensagens recebidas;

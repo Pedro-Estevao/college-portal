@@ -12,7 +12,7 @@ body {
     }
 }
 
-.ad {
+.cn {
     &-content {
         &--header {
             background-color: #fff;
@@ -52,22 +52,32 @@ body {
 
             &-wrapper {
                 display: flex;
+                justify-content: space-between;
                 width: 100%;
                 max-width: 980px;
                 margin: 0 auto;
 
+                .navbar {
+                    padding: 0px;
+                }
+
                 &__logo {
-                    display: block;
+                    display: flex;
+                    align-items: center;
                     float: left;
                     margin: 0px;
 
                     &-img {
+                        height: fit-content;
                         width: 215px;
                         transition: .3s;
                         top: 5px;
 
                         @media (max-width: 767px) {
                             width: 165px;
+                        }
+                        @media (max-width: 374px) {
+                            width: 130px;
                         }
                     }
                     &--link {
@@ -88,21 +98,98 @@ body {
                         margin-right: 25px;
 
                         &.desktop {
+                            .dropdown {
+                                &.notification {
+                                    .dropdown-toggle {
+                                        color: #444;
+                                        font-size: 16px;
+                                        font-weight: bold;
+                                        text-decoration: none;
+                                        cursor: pointer;
+
+                                        &::after {
+                                            display: none;
+                                        }
+                                    }
+                                }
+
+                                &-menu {
+                                    position: absolute !important;
+                                    inset: 0px 0px auto auto;
+                                    margin: 0px;
+                                    transform: translate3d(0.275009px, 66px, 0px);
+                                    border-radius: 0.3rem;
+                                    box-shadow: 0px 0px 10px 5px rgb(30 32 37 / 12%);
+                                    border: 0px solid #e9ebec;
+
+                                    .dropdown-item {
+                                        padding: 0.35rem 1.2rem;
+                                        font-weight: 400;
+                                        white-space: nowrap;
+                                        border: 0;
+
+                                        i {
+                                            font-size: 16px !important;
+                                            margin-right: 8px !important;
+                                            color: #878a99 !important;
+                                            width: 20px;
+                                        }
+                                        span {
+                                            vertical-align: middle !important;
+                                        }
+
+                                        &.mobile {
+                                            @media (min-width: 768px) {
+                                                display: none;
+                                            }
+                
+                                            @media (max-width: 767px) {
+                                                display: block;
+                                            }
+                                        }
+                                    }
+                                    .dropdown-divider {
+                                        &.mobile {
+                                            @media (min-width: 768px) {
+                                                display: none;
+                                            }
+                
+                                            @media (max-width: 767px) {
+                                                display: block;
+                                            }
+                                        }
+                                    }
+
+                                    &.notification {
+
+                                    }
+
+                                    @media (max-width: 767px) {
+                                        transform: translate3d(0.275009px, 58px, 0px);
+                                    }
+                                    @media (max-width: 374px) {
+                                        transform: translate3d(0.275009px, 58px, 0px);
+                                    }
+                                }
+                            }
+
+                            &.notification,
+                            &.menu {
+                                display: block !important;
+                            }
+                            &.menu {
+                                margin: 0px;
+                            }
+                            &.notification {
+                                margin-right: 15px;
+                            }
+
                             @media (min-width: 768px) {
                                 display: block;
                             }
 
                             @media (max-width: 767px) {
                                 display: none;
-                            }
-                        }
-                        &.mobile {
-                            @media (min-width: 768px) {
-                                display: none;
-                            }
-
-                            @media (max-width: 767px) {
-                                display: block;
                             }
                         }
 
@@ -121,88 +208,6 @@ body {
                                 color: #707070;
                             }
                         }
-                    }
-
-                    &--mobile {
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        height: 100%;
-                        width: 100%;
-
-                        &-background {
-                            position: absolute;
-                            width: 100%;
-                            height: 100%;
-                            background-color: #1c1c1c;
-                            opacity: 0.75;
-                        }
-                        &-box {
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            justify-content: space-around;
-                            background: #fff;
-                            color: #4d4d4f;
-                            box-shadow: 0px 0px 20px 5px rgb(0 0 0 / 50%);
-                            overflow: hidden;
-                            border-radius: 10px;
-                            width: 100%;
-                            max-width: 300px;
-                            padding: 20px;
-                            margin: auto;
-
-                            .ad-content__header-wrapper__menu--item {
-                                margin: 0;
-                            }
-
-                            &__header {
-                                position: relative;
-                                display: flex;
-                                width: 100%;
-                                align-items: center;
-                                justify-content: center;
-                                margin-bottom: 20px;
-
-                                &--title {
-                                    margin-bottom: 0;
-                                    text-transform: uppercase;
-                                }
-                                &--btn {
-                                    &-close {
-                                        position: absolute;
-                                        right: 0;
-                                        cursor: pointer;
-                                        font-size: 20pt;
-                                        margin-right: 15px;
-                                    }
-                                }
-                            }
-
-                            &__main {
-                                display: flex;
-                                flex-direction: column;
-                                align-items: center;
-                                justify-content: center;
-                                width: 100%;
-
-                                .mobile {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    width: 100%;
-                                    padding: 10px;
-                                }
-                            }
-                        }
-                    }
-
-                    &--divisor {
-
                     }
                 }
             }
@@ -707,6 +712,34 @@ body {
 
             @media (max-width: 399px) {
                 padding: 0 !important;
+            }
+        }
+    }
+
+    &-main {
+        &-content {
+            padding-top: 3rem;
+
+            &--cards {
+                display: grid;
+                grid-template-columns: repeat(4,1fr);
+                gap: 20px;
+
+                .card {
+                    height: 180px;
+                    width: 100%;
+                    border-radius: 0.3rem;
+                    box-shadow: 0px 0px 8px 0px #1c1c1c45;
+                }
+
+                @media (max-width: 991px) {
+                    grid-template-columns: repeat(2,1fr);
+                    gap: 20px;
+                }
+                @media (max-width: 575px) {
+                    grid-template-columns: repeat(1,1fr);
+                    gap: 20px;
+                }
             }
         }
     }
