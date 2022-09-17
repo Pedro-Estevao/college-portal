@@ -107,18 +107,84 @@
         <main class="cn-main">
             <div class="cn-main-content container">
                 <div class="cn-main-content--cards">
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
-                    <div class="card"></div>
+                    <div class="card">
+                        <div class="card-content d-flex">
+                            <div class="card-content--icone d-flex align-items-center justify-content-center">
+                                <i class="fa-solid fa-chalkboard-user text-success"></i>
+                                <div class="card-content--icone-fill bg-success"></div>
+                            </div>
+                            <div class="card-content--info w-100 d-flex flex-column">
+                                <span class="card-content--info-title">Matérias</span>
+                                <h3 class="card-content--info-number d-flex align-items-center">4</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content d-flex">
+                            <div class="card-content--icone d-flex align-items-center justify-content-center">
+                                <i class="fa-solid fa-file-lines text-warning"></i>
+                                <div class="card-content--icone-fill bg-warning"></div>
+                            </div>
+                            <div class="card-content--info w-100 d-flex flex-column">
+                                <span class="card-content--info-title">Trabalhos</span>
+                                <h3 class="card-content--info-number d-flex align-items-center">4</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content d-flex">
+                            <div class="card-content--icone d-flex align-items-center justify-content-center">
+                                <i class="fa-solid fa-users-rectangle text-danger"></i>
+                                <div class="card-content--icone-fill bg-danger"></div>
+                            </div>
+                            <div class="card-content--info w-100 d-flex flex-column">
+                                <span class="card-content--info-title">Alunos em DP</span>
+                                <h3 class="card-content--info-number d-flex align-items-center">4</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content d-flex">
+                            <div class="card-content--icone d-flex align-items-center justify-content-center">
+                                <i class="fa-solid fa-file-circle-plus text-fill"></i>
+                                <div class="card-content--icone-fill"></div>
+                            </div>
+                            <div class="card-content--info w-100 d-flex align-items-center">
+                                <span>Criar Trabalho</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cn-main-content--body">
+                    <div class="row">
+                        <div class="col col-sm-9">
+                            <div class="card">
+                                <?php if($category == 'Aluno'){ ?>
+                                    <canvas id="myChart" width="400" height="400"></canvas>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <div class="col col-sm-3">
+                            <div class="card">
+                                <p>Apenas teste</p>
+                                <p>Apenas teste</p>
+                                <p>Apenas teste</p>
+                                <p>Apenas teste</p>
+                                <p>Apenas teste</p>
+                                <p>Apenas teste</p>
+                                <p>Apenas teste</p>
+                                <p>Apenas teste</p>
+                                <p>Apenas teste</p>
+                                <p>Apenas teste</p>
+                                <p>Apenas teste</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
-
-    <?php if($category == 'Aluno'){ ?>
-        <canvas id="myChart" width="400" height="400"></canvas>
-    <?php } ?>
 
     <!-- jQuery first, then JQuery Mask, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>

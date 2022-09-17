@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>src/assets/css/style.css" />
 </head>
 <body>
-    <div class="ad-content--header">
-        <header class="ad-content__header container">
-            <div class="ad-content__header-wrapper">
-                <div class="ad-content__header-wrapper__logo">
-                    <a class="ad-content__header-wrapper__logo--link" rel="nofollow" href="<?php echo INCLUDE_PATH; ?>" title="Voltar a página inicial">
-                        <img class="ad-content__header-wrapper__logo-img" src="<?php echo INCLUDE_PATH; ?>src/assets/img/logo-extend.webp" alt="Universidade Barão de Mauá" title="Universidade Barão de Mauá">
+    <div class="cn-content--header">
+        <header class="cn-content__header container">
+            <div class="cn-content__header-wrapper">
+                <div class="cn-content__header-wrapper__logo">
+                    <a class="cn-content__header-wrapper__logo--link" rel="nofollow" href="<?php echo INCLUDE_PATH; ?>" title="Voltar a página inicial">
+                        <img class="cn-content__header-wrapper__logo-img" src="<?php echo INCLUDE_PATH; ?>src/assets/img/logo-extend.jpg" alt="Universidade Barão de Mauá" title="Universidade Barão de Mauá">
                     </a>
                 </div>
             </div>
@@ -39,30 +39,30 @@
         }
     ?>
 
-    <div class="ad-content--login">
-        <form class="ad-login--form" autocomplete="off" method="POST">
+    <div class="cn-content--login">
+        <form class="cn-login--form" autocomplete="off" method="POST">
             <input autocomplete="false" name="hidden" type="email" style="display:none;">    
-            <div class="ad-login--form-group--input">
-                <input type="email" id="email" name="email-login" class="ad-login--form-group--input-text" placeholder="Informe o e-mail" required />
-                <label for="email" class="ad-login--form-group--input-label">E-mail</label>
+            <div class="cn-login--form-group--input">
+                <input type="email" id="email" name="email-login" class="cn-login--form-group--input-text" placeholder="Informe o e-mail" required />
+                <label for="email" class="cn-login--form-group--input-label">E-mail</label>
             </div>
-            <div class="ad-login--form-group--input">
-                <input type="password" id="password" name="pass-login" class="ad-login--form-group--input-text" placeholder="Informe a senha" required />
-                <label for="password" class="ad-login--form-group--input-label">Senha</label>
+            <div class="cn-login--form-group--input">
+                <input type="password" id="password" name="pass-login" class="cn-login--form-group--input-text" placeholder="Informe a senha" required />
+                <label for="password" class="cn-login--form-group--input-label">Senha</label>
             </div>
-            <div class="ad-login--form-group--options">
-                <input type="checkbox" name="lembrar" class="ad-login--form-group--options-checkbox--input" id="lembrar">
-                <label for="lembrar" name="labelLembrar" class="ad-login--form-group--options-checkbox">Lembrar-me</label>
-                <a class="ad-login--form-group--options-recPass" href="#" data-toggle="modal" data-target="#recPass">Recuperar Senha</a>
+            <div class="cn-login--form-group--options">
+                <input type="checkbox" name="lembrar" class="cn-login--form-group--options-checkbox--input" id="lembrar">
+                <label for="lembrar" name="labelLembrar" class="cn-login--form-group--options-checkbox">Lembrar-me</label>
+                <a class="cn-login--form-group--options-recPass" href="#" data-toggle="modal" data-target="#recPass">Recuperar Senha</a>
             </div>
-            <div class="ad-login--form-group--footer form-group">
-                <button class="ad-login--form-group--submit" type="submit" name="login-btn" id="login-btn">LOGAR</button>
+            <div class="cn-login--form-group--footer form-group">
+                <button class="cn-login--form-group--submit" type="submit" name="login-btn" id="login-btn">LOGAR</button>
             </div>
         </form>
     </div>
 
     <!-- Modal -->
-    <div class="modal fade ad-modal--recPass" id="recPass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade cn-modal--recPass" id="recPass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header align-items-center justify-content-center">
@@ -70,9 +70,9 @@
                 </div>
                 <div class="modal-body">
                     <p>Informe seu login abaixo para receber sua senha:</p>
-                    <div class="ad-login--form-group--input">
-                        <input type="email" id="email" class="ad-login--form-group--input-text" placeholder="Informe o e-mail" required />
-                        <label for="email" class="ad-login--form-group--input-label">E-mail</label>
+                    <div class="cn-login--form-group--input">
+                        <input type="email" id="email" class="cn-login--form-group--input-text" placeholder="Informe o e-mail" required />
+                        <label for="email" class="cn-login--form-group--input-label">E-mail</label>
                     </div>
                     <p>Se ele estiver cadastrado em nossa base de dados, logo você receberá uma mensagem com instruções de como recuperar seu acesso.</p>
                 </div>
