@@ -51,7 +51,7 @@
                             <a class="cn-content__header-wrapper__menu--item-link" href="<?php echo INCLUDE_PATH; ?>materias">Matérias</a>
                         </li>
                         <li class="cn-content__header-wrapper__menu--item desktop">
-                            <a class="cn-content__header-wrapper__menu--item-link" target="_blank" href="<?php echo INCLUDE_PATH; ?>chat">Chat da Sala</a>
+                            <a class="cn-content__header-wrapper__menu--item-link" href="<?php echo INCLUDE_PATH; ?>chat">Chat da Sala</a>
                         </li>
                         <li class="cn-content__header-wrapper__menu--item desktop notification">
                             <div class="navbar-collapse" id="navbar-list-notification">
@@ -107,7 +107,7 @@
         <main class="cn-main">
             <div class="cn-main-content container">
                 <div class="cn-main-content--cards">
-                    <div class="card">
+                    <div class="card cn-card">
                         <div class="card-content d-flex">
                             <div class="card-content--icone d-flex align-items-center justify-content-center">
                                 <i class="fa-solid fa-chalkboard-user text-success"></i>
@@ -119,7 +119,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card cn-card">
                         <div class="card-content d-flex">
                             <div class="card-content--icone d-flex align-items-center justify-content-center">
                                 <i class="fa-solid fa-file-lines text-warning"></i>
@@ -131,7 +131,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card cn-card">
                         <div class="card-content d-flex">
                             <div class="card-content--icone d-flex align-items-center justify-content-center">
                                 <i class="fa-solid fa-users-rectangle text-danger"></i>
@@ -143,7 +143,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card cn-card">
                         <div class="card-content d-flex">
                             <div class="card-content--icone d-flex align-items-center justify-content-center">
                                 <i class="fa-solid fa-file-circle-plus text-fill"></i>
@@ -159,14 +159,14 @@
                 <div class="cn-main-content--body">
                     <div class="row">
                         <div class="col col-sm-9">
-                            <div class="card">
+                            <div class="card cn-card">
                                 <?php if($category == 'Aluno'){ ?>
-                                    <canvas id="myChart" width="400" height="400"></canvas>
+                                    <canvas id="chartAluno" class="cn-chart" width="400" height="400"></canvas>
                                 <?php } ?>
                             </div>
                         </div>
                         <div class="col col-sm-3">
-                            <div class="card">
+                            <div class="card cn-card">
                                 <p>Apenas teste</p>
                                 <p>Apenas teste</p>
                                 <p>Apenas teste</p>

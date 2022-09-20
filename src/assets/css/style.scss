@@ -725,12 +725,12 @@ body {
                 gap: 20px;
 
                 .card {
-                    display: flex;
-                    padding: 24px;
-                    border: none;
-                    border-radius: 6px;
-                    background-color: #fff;
-                    box-shadow: 0 1px 1px 0 rgb(118 135 154 / 24%), 0 3px 8px 0 rgb(118 135 154 / 8%);
+                    // display: flex;
+                    // padding: 24px;
+                    // border: none;
+                    // border-radius: 6px;
+                    // background-color: #fff;
+                    // box-shadow: 0 1px 1px 0 rgb(118 135 154 / 24%), 0 3px 8px 0 rgb(118 135 154 / 8%);
                     
                     // height: 120px;
                     // width: 100%;
@@ -792,6 +792,16 @@ body {
                 }
                 @media (max-width: 575px) {
                     grid-template-columns: repeat(1,1fr);
+                }
+            }
+            &--body {
+                .card {
+                    height: 500px;
+                    padding: 1rem;
+
+                    .cn-chart {
+
+                    }
                 }
             }
         }
@@ -1045,6 +1055,16 @@ body {
                 }
             }
         }
+    }
+
+    &-card {
+        display: flex;
+        padding: 24px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 6px;
+        background-color: #fff;
+        box-shadow: 0 1px 1px 0 rgb(118 135 154 / 24%), 0 3px 8px 0 rgb(118 135 154 / 8%);
     }
 }
 
