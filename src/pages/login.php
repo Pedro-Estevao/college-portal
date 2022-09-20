@@ -1,6 +1,9 @@
 <?php
     Controle::logar();
     Controle::lembrar();
+    if(Controle::logado()) {
+        Controle::redirectAcessoNegado();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,17 +22,7 @@
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>src/assets/css/style.css" />
 </head>
 <body>
-    <div class="cn-content--header">
-        <header class="cn-content__header container">
-            <div class="cn-content__header-wrapper">
-                <div class="cn-content__header-wrapper__logo">
-                    <a class="cn-content__header-wrapper__logo--link" rel="nofollow" href="<?php echo INCLUDE_PATH; ?>" title="Voltar a página inicial">
-                        <img class="cn-content__header-wrapper__logo-img" src="<?php echo INCLUDE_PATH; ?>src/assets/img/logo-extend.jpg" alt="Universidade Barão de Mauá" title="Universidade Barão de Mauá">
-                    </a>
-                </div>
-            </div>
-        </header>
-    </div>
+    <?php include('src/pages/layout/header.php'); ?>
 
     <?php
         if (isset($_SESSION["mensagem-alert"]))
@@ -88,7 +81,5 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- Style JS -->
-    <script type="text/javascript" src="<?php echo INCLUDE_PATH; ?>src/assets/js/style.js"></script>
 </body>
 </html>

@@ -139,18 +139,8 @@
             {
                 if(isset($_GET['url']))
                 {
-                    $url = explode('/',$_GET['url']);
-
-                    if(file_exists('src/pages/'.$url[0].'.php'))
-                    {
-                        include('src/pages/'.$url[0].'.php');
-                        die();
-                    }
-                    else
-                    {
-                        header('Location: '.INCLUDE_PATH);
-                        die();
-                    }
+                    header('Location: '.INCLUDE_PATH);
+                    die();
                 }
                 else
                 {

@@ -147,6 +147,11 @@ body {
                                                 display: block;
                                             }
                                         }
+
+                                        &:hover, &:focus {
+                                            color: #707070;
+                                            background-color: #e9ecef;
+                                        }
                                     }
                                     .dropdown-divider {
                                         &.mobile {
@@ -725,17 +730,8 @@ body {
                 gap: 20px;
 
                 .card {
-                    // display: flex;
-                    // padding: 24px;
-                    // border: none;
-                    // border-radius: 6px;
-                    // background-color: #fff;
-                    // box-shadow: 0 1px 1px 0 rgb(118 135 154 / 24%), 0 3px 8px 0 rgb(118 135 154 / 8%);
-                    
-                    // height: 120px;
-                    // width: 100%;
-                    // border-radius: 0.3rem;
-                    // box-shadow: 0px 0px 8px 0px #1c1c1c45;
+                    cursor: pointer;
+                    transition: ease 0.25s;
 
                     &-content {
                         &--icone {
@@ -781,6 +777,10 @@ body {
                                 font-weight: 600;
                             }
                         }
+                    }
+
+                    &:hover {
+                        transform: scale(1.03);
                     }
                 }
 
