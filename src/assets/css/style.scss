@@ -724,6 +724,161 @@ body {
     &-main {
         &-content {
             padding-top: 3rem;
+            padding-bottom: 3rem;
+
+            &.perfil-page {
+                .card {
+                    margin: auto;
+                    max-width: 500px;
+                }
+                .perfil-card {
+                    &--image {
+                        &-content {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            img {
+                                width: 180px;
+                                height: 180px;
+                                border-radius: 50%;
+                                object-fit: cover;
+                                border: 8px solid #2cb89d;
+                            }
+                        }
+                        &-name {
+                            .perfil {
+                                &-name {
+                                    text-align: center;
+                                    margin-top: 10px;
+                                    font-size: 14pt;
+                                    color: #6e6565;
+                                }
+                                &-curso {
+                                    text-align: center;
+                                    margin-top: 0px;
+                                    font-size: 11pt;
+                                    font-style: italic;
+                                    color: #6e6565;
+                                }
+                            }
+                        }
+                    }
+                    &--info {
+                        padding: 1rem 0rem 0rem;
+
+                        .info-form {
+                            .form-group {
+                                position: relative;
+                                width: 100%;
+                                max-width: 350px;
+                                margin: 0 auto;
+                                margin-top: 25px;
+
+                                @media (max-width: 374px) {
+                                    max-width: 90%;
+                                }
+                            }
+                            &--input {
+                                padding: 0.8rem;
+                                width: 100%;
+                                height: 100%;
+                                border: 2px solid #707070;
+                                background: #fff;
+                                border-radius: 5px;
+                                font-size: 18px;
+                                outline: none;
+                                transition: all 0.3s;
+                                color: #444;
+        
+                                &:focus {
+                                    border: 2px solid #2f2c45;
+
+                                    + label {
+                                        color: #444;
+                                    }
+                                }
+                                &::placeholder {
+                                    font-size: 16px;
+                                    opacity: 1;
+                                    transition: all 0.3s;
+                                }
+                                &:focus::placeholder {
+                                    opacity: 1;
+                                }
+                                &:-webkit-autofill,
+                                &:-webkit-autofill:hover, 
+                                &:-webkit-autofill:focus, 
+                                &:-webkit-autofill:active {
+                                    -webkit-box-shadow: 0 0 0 60px rgb(255 255 255) inset !important;
+                                    box-shadow: 0 0 0 60px rgb(255 255 255) inset !important;
+                                    -webkit-text-fill-color: #444 !important;
+                                    caret-color: #444;
+                                }
+                            }
+                            &--label {
+                                position: absolute;
+                                left: 10px;
+                                top: -10px;
+                                transition: all 0.2s;
+                                padding: 0 5px;
+                                z-index: 1;
+                                color: #444;
+                                font-size: 14px;
+                                font-weight: 900;
+
+                                &::before {
+                                    content: "";
+                                    position: absolute;
+                                    height: 5px;
+                                    background: #fff;
+                                    left: 0px;
+                                    top: 9px;
+                                    width: 100%;
+                                    z-index: -1;
+                                }
+                            }
+                            &--submit {
+                                color: #fff;
+                                border-color: #2cb79a;
+                                height: 50px;
+                                width: 100%;
+                                border-radius: 4px;
+                                background-color: #2cb79a;
+                                font-size: 14px;
+                                text-transform: uppercase;
+                                text-align: center;
+                                border: 1px solid #2cb79a;
+
+                                &:hover {
+                                    background-color: #228e77;
+                                    border-color: #228e77;
+                                }
+                            }
+                        }
+                    }
+
+                    @media (max-width: 374px) {
+                        padding-left: 0rem;
+                        padding-right: 0rem;
+                    }
+                }
+            }
+            &.materiais-page {
+                .materiais-page {
+                    .table {
+                        &-header {
+
+                        }
+                        &-content {
+
+                        }
+                        &-list {
+                            
+                        }
+                    }
+                }
+            }
 
             &--cards {
                 display: grid;

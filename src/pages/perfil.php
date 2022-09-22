@@ -28,6 +28,49 @@
         }
     ?>
 
+    <div class="cn-content--main">
+        <main class="cn-main">
+            <div class="cn-main-content container perfil-page">
+                <div class="card cn-card perfil-card">
+                    <div class="card-body">
+                        <div class="perfil-card--image">
+                            <div class="perfil-card--image-content">
+                                <img class="" src="<?php echo INCLUDE_PATH; ?>src/assets/img/perfil.jpeg" alt="Imagem Perfil" />
+                            </div>
+                            <div class="perfil-card--image-name">
+                                <h3 class="perfil-name mb-0">Pedro Estevão Paulista</h3>
+                                <p class="perfil-curso mb-0">Ciência da Computação</p>
+                            </div>
+                        </div>
+                        <div class="perfil-card--info">
+                            <form class="info-form" id="">
+                                <div class="form-group">
+                                    <input type="text" id="perfil-nome" name="perfil-nome" class="info-form--input" placeholder="Informe o nome" required />
+                                    <label for="perfil-nome" class="info-form--label">Nome</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="perfil-nome" name="perfil-nome" class="info-form--input" placeholder="Informe o e-mail" required />
+                                    <label for="perfil-nome" class="info-form--label">E-mail</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="perfil-nome" name="perfil-nome" class="info-form--input" placeholder="Informe o telefone" required />
+                                    <label for="perfil-nome" class="info-form--label">Telefone</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="perfil-nome" name="perfil-nome" class="info-form--input" placeholder="Informe a nova senha" required />
+                                    <label for="perfil-nome" class="info-form--label">Senha</label>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-default info-form--submit mb-0">ENTRAR</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
     <!-- jQuery first, then JQuery Mask, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
