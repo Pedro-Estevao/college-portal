@@ -830,7 +830,6 @@ body.menu-mobile-expanded {
 }
 .cn-main-content--body .card {
   height: 500px;
-  padding: 1rem;
 }
 .cn-login--form-group--input {
   position: relative;
@@ -1061,7 +1060,6 @@ body.menu-mobile-expanded {
 }
 .cn-card {
   display: flex;
-  padding: 24px;
   margin-bottom: 20px;
   border: none;
   border-radius: 6px;

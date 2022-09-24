@@ -1,4 +1,4 @@
-const ctx = document.getElementById('chartAluno').getContext('2d');
+const ctx = document.getElementById('chart-docente').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'line',
     data: {
