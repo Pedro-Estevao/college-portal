@@ -733,17 +733,45 @@ body {
                 }
                 .perfil-card {
                     &--image {
+                        padding-top: 2rem;
+
                         &-content {
                             display: flex;
                             align-items: center;
                             justify-content: center;
 
-                            img {
+                            &__moldura {
+                                background-image: url('../img/mold-4.png');
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                background-position: center;
+                                position: relative;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border-radius: 50%;
                                 width: 180px;
                                 height: 180px;
-                                border-radius: 50%;
-                                object-fit: cover;
-                                border: 8px solid #2cb89d;
+                                padding: 9px;
+                                overflow: hidden;
+
+                                &--container {
+                                    position: absolute;
+                                    width: 100%;
+                                    z-index: 2;
+                                }
+                                &-content {
+                                    position: relative;
+                                    border-radius: 50%;
+                                    overflow: hidden;
+                                    z-index: 1;
+                                    img {
+                                        width: 100%;
+                                        height: fit-content;
+                                        border-radius: 50%;
+                                        object-fit: cover;
+                                    }
+                                }
                             }
                         }
                         &-name {
@@ -765,7 +793,7 @@ body {
                         }
                     }
                     &--info {
-                        padding: 1rem 0rem 0rem;
+                        padding: 1rem 0rem 2rem;
 
                         .info-form {
                             .form-group {
@@ -865,17 +893,46 @@ body {
                 }
             }
             &.materiais-page {
-                .materiais-page {
-                    .table {
-                        &-header {
+                .cn-main-content--cards {
+                    .card {
+                        position: relative;
+                        overflow: hidden;
 
-                        }
-                        &-content {
+                        .card-content {
+                            &--image {
+                                margin-top: -16px;
+                                margin-left: -16px;
+                                margin-right: -16px;
 
+                                img {
+                                    width: 100%;
+                                }
+                            }
+                            &--info {
+                                padding-top: 16px;
+
+                                &-course {
+                                    color: #444444d4;
+                                }
+                                &-matter {
+                                    font-size: 16pt;
+                                }
+                            }
                         }
-                        &-list {
-                            
+
+                        &:hover {
+                            box-shadow: 5px 5px 15px 5px rgb(0 0 0 / 20%);
+                            transform: none;
                         }
+                    }
+
+                    @media (min-width: 1200px) {
+                        grid-template-columns: repeat(3, 1fr);
+                        gap: 20px;
+                    }
+                    @media (max-width: 1199px) {
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 20px;
                     }
                 }
             }

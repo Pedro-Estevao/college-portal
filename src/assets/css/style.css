@@ -629,18 +629,48 @@ body.menu-mobile-expanded {
   margin: auto;
   max-width: 500px;
 }
+.cn-main-content.perfil-page .perfil-card--image {
+  padding-top: 2rem;
+}
 .cn-main-content.perfil-page .perfil-card--image-content {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.cn-main-content.perfil-page .perfil-card--image-content img {
+.cn-main-content.perfil-page .perfil-card--image-content__moldura {
+  background-image: url("../img/mold-4.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   width: 180px;
   height: 180px;
+  padding: 9px;
+  overflow: hidden;
+}
+.cn-main-content.perfil-page .perfil-card--image-content__moldura--container {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+.cn-main-content.perfil-page .perfil-card--image-content__moldura-content {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+}
+.cn-main-content.perfil-page .perfil-card--image-content__moldura-content img {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
-  border: 8px solid #2cb89d;
 }
 .cn-main-content.perfil-page .perfil-card--image-name .perfil-name {
   text-align: center;
@@ -656,7 +686,7 @@ body.menu-mobile-expanded {
   color: #6e6565;
 }
 .cn-main-content.perfil-page .perfil-card--info {
-  padding: 1rem 0rem 0rem;
+  padding: 1rem 0rem 2rem;
 }
 .cn-main-content.perfil-page .perfil-card--info .info-form .form-group {
   position: relative;
@@ -760,6 +790,43 @@ body.menu-mobile-expanded {
   .cn-main-content.perfil-page .perfil-card {
     padding-left: 0rem;
     padding-right: 0rem;
+  }
+}
+.cn-main-content.materiais-page .cn-main-content--cards .card {
+  position: relative;
+  overflow: hidden;
+}
+.cn-main-content.materiais-page .cn-main-content--cards .card .card-content--image {
+  margin-top: -16px;
+  margin-left: -16px;
+  margin-right: -16px;
+}
+.cn-main-content.materiais-page .cn-main-content--cards .card .card-content--image img {
+  width: 100%;
+}
+.cn-main-content.materiais-page .cn-main-content--cards .card .card-content--info {
+  padding-top: 16px;
+}
+.cn-main-content.materiais-page .cn-main-content--cards .card .card-content--info-course {
+  color: rgba(68, 68, 68, 0.831372549);
+}
+.cn-main-content.materiais-page .cn-main-content--cards .card .card-content--info-matter {
+  font-size: 16pt;
+}
+.cn-main-content.materiais-page .cn-main-content--cards .card:hover {
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.2);
+  transform: none;
+}
+@media (min-width: 1200px) {
+  .cn-main-content.materiais-page .cn-main-content--cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 1199px) {
+  .cn-main-content.materiais-page .cn-main-content--cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 .cn-main-content--cards {

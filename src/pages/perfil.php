@@ -35,7 +35,12 @@
                     <div class="card-body">
                         <div class="perfil-card--image">
                             <div class="perfil-card--image-content">
-                                <img class="" src="<?php echo INCLUDE_PATH; ?>src/assets/img/perfil.jpeg" alt="Imagem Perfil" />
+                                <div class="perfil-card--image-content__moldura">
+                                    <img class="perfil-card--image-content__moldura--container" src="<?php echo INCLUDE_PATH; ?>src/assets/img/mold-3.png" />
+                                    <div class="perfil-card--image-content__moldura-content">
+                                        <img class="" src="<?php echo INCLUDE_PATH; ?>src/assets/img/usuarios/pedro.jpeg" alt="Imagem Perfil" />
+                                    </div>
+                                </div>
                             </div>
                             <div class="perfil-card--image-name">
                                 <h3 class="perfil-name mb-0">Pedro Estevão Paulista</h3>
