@@ -15,7 +15,7 @@ if(isset($_SESSION['category']))
                 </div>
                 <div class="card-content--info w-100 d-flex flex-column">
                     <span class="card-content--info-title">Matérias</span>
-                    <h3 class="card-content--info-number d-flex align-items-center">4</h3>
+                    <h3 class="card-content--info-number d-flex align-items-center"><?= Controle::countMateriasVinculadas($category,$_SESSION['idUser']) ?></h3>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@ if(isset($_SESSION['category']))
                 </div>
                 <div class="card-content--info w-100 d-flex flex-column">
                     <span class="card-content--info-title">Trabalhos</span>
-                    <h3 class="card-content--info-number d-flex align-items-center">4</h3>
+                    <h3 class="card-content--info-number d-flex align-items-center"><?= Controle::countTrabalhosVinculados($category,$_SESSION['idUser']) ?></h3>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@ if(isset($_SESSION['category']))
                 </div>
                 <div class="card-content--info w-100 d-flex flex-column">
                     <span class="card-content--info-title"><?php echo ($category === 'Aluno') ? ("Próxima Prova") : ("Alunos em DP"); ?></span>
-                    <h3 class="card-content--info-number d-flex align-items-center">4</h3>
+                    <h3 class="card-content--info-number d-flex align-items-center"><?= ($category === 'Aluno') ? (date_format(date_create(Controle::dataProximaProva($_SESSION['idUser'])), 'd').' de '.date_format(date_create(Controle::dataProximaProva($_SESSION['idUser'])), 'M')) : (Controle::countAlunosEmDP($_SESSION['idUser'])); ?></h3>
                 </div>
             </div>
         </div>

@@ -20,8 +20,18 @@
                         $_SESSION['login'] = true;
                         $_SESSION['user'] = $user;
                         $_SESSION['password'] = $pass;
-                        $_SESSION['nome'] = Controle::recuperaDadosUser($user,'NOME',$verificaUser['resultado'][1]);
+                        $_SESSION['nome'] = Controle::recuperaDadosUser($user,'NOME',$verificaUser['resultado'][2]);
                         $_SESSION['category'] = $verificaUser['resultado'][1];
+                        if($verificaUser['resultado'][1] == 'Aluno')
+                        {
+                            $_SESSION['idUser'] = Controle::recuperaDadosUser($user,'ID',$verificaUser['resultado'][2]);
+                            $_SESSION['matricula'] = Controle::recuperaDadosMatricula($_SESSION['idUser'],'MATRICULA');
+                            $_SESSION['curso'] = Controle::recuperaDadosCurso(Controle::recuperaDadosMatricula($_SESSION['idUser'],'CURSO'),'CURSO');
+                        }
+                        else
+                        {
+                            $_SESSION['idUser'] = Controle::recuperaDadosUser($user,'ID',$verificaUser['resultado'][2]);
+                        }
             
                         if(isset($_POST['lembrar']))
                         {
@@ -67,16 +77,53 @@
         {
             $sql_acesso = Conn::Conectar()->prepare(($table == "Aluno") ? ("SELECT COUNT(*) AS Total FROM alunos WHERE EMAIL = ? AND SENHA = ?") : ("SELECT COUNT(*) AS Total FROM professores WHERE EMAIL = ? AND SENHA = ?"));
             $sql_acesso->execute(array($email,$senha));
-
             return $sql_acesso->fetch();
+        }
+
+        public static function recuperaDadosMatricula($id,$info)
+        {
+            $sql = Conn::Conectar()->prepare("SELECT `$info` FROM matricula WHERE ALUNO = ?");
+            $sql->execute(array($id));
+            $retorno = $sql->fetch();
+            return $retorno[$info];
+        }
+
+        public static function recuperaDadosCurso($id,$info)
+        {
+            $sql = Conn::Conectar()->prepare("SELECT `$info` FROM cursos WHERE ID = ?");
+            $sql->execute(array($id));
+            $retorno = $sql->fetch();
+            return $retorno[$info];
+        }
+
+        public static function recuperaDadosMateria($id,$info)
+        {
+            $sql = Conn::Conectar()->prepare("SELECT `$info` FROM materias WHERE ID = ?");
+            $sql->execute(array($id));
+            $retorno = $sql->fetch();
+            return $retorno[$info];
         }
 
         public static function recuperaDadosUser($email,$info,$table)
         {
-            $sql = Conn::Conectar()->prepare(($table == 'Aluno') ? ("SELECT ? FROM alunos WHERE EMAIL = ?") : ("SELECT ? FROM professores WHERE EMAIL = ?"));
-            $sql->execute(array($info,$email));
+            $sql = Conn::Conectar()->prepare("SELECT `$info` FROM `$table` WHERE EMAIL = ?");
+            $sql->execute(array($email));
             $retorno = $sql->fetch();
             return $retorno[$info];
+        }
+
+        public static function listarMateriasAlunos($curso)
+        {
+            $sql = Conn::Conectar()->prepare("SELECT materias.ID, materias.MATERIA, materias.IMG, cursos.CURSO FROM grade INNER JOIN materias ON grade.MATERIA = materias.ID INNER JOIN cursos ON grade.CURSO = cursos.ID WHERE grade.CURSO = ?");
+            $sql->execute(array($curso));
+            return $sql->fetchAll();
+        }
+
+        public static function listarMateriasDocentes($professor)
+        {
+            $sql = Conn::Conectar()->prepare("SELECT materias.ID, materias.MATERIA, materias.IMG, cursos.CURSO FROM grade INNER JOIN materias ON grade.MATERIA = materias.ID INNER JOIN cursos ON grade.CURSO = cursos.ID WHERE grade.PROFESSOR = ?");
+            $sql->execute(array($professor));
+            return $sql->fetchAll();
         }
 
         public static function procuraUsuario($email)
@@ -127,6 +174,16 @@
                     $_SESSION['password'] = $pass;
                     $_SESSION['category'] = $category;
                     $_SESSION['nome'] = Controle::recuperaDadosUser($user,'NOME',$category);
+                    if($category == 'Aluno')
+                    {
+                        $_SESSION['idUser'] = Controle::recuperaDadosUser($user,'ID',$category);
+                        $_SESSION['matricula'] = Controle::recuperaDadosMatricula($_SESSION['idUser'],'MATRICULA');
+                        $_SESSION['curso'] = Controle::recuperaDadosCurso(Controle::recuperaDadosMatricula($_SESSION['idUser'],'CURSO'),'CURSO');
+                    }
+                    else
+                    {
+                        $_SESSION['idUser'] = Controle::recuperaDadosUser($user,'ID',$category);
+                    }
                     header('Location: '.INCLUDE_PATH);
                     die();
                 }
@@ -214,6 +271,65 @@
         {
             header('Location: '.INCLUDE_PATH);
             die();
+        }
+
+        public static function verificaPrazo($date_i,$date_f)
+        {
+            if(strtotime($date_i) > strtotime($date_f))
+            {
+                return strtotime($date_i) > strtotime($date_f);
+            }
+            else
+            {
+                return strtotime($date_i) > strtotime($date_f);
+            }
+        }
+
+        public static function countMateriasVinculadas($category,$id)
+        {
+            if($category == 'Aluno')
+            {
+                $sql = Conn::Conectar()->prepare("SELECT COUNT(grade.MATERIA) AS Total FROM matricula INNER JOIN grade ON matricula.CURSO = grade.CURSO WHERE matricula.ALUNO = ?");
+            }
+            else
+            {
+                $sql = Conn::Conectar()->prepare("SELECT COUNT(MATERIA) AS Total FROM grade WHERE PROFESSOR = ?");
+            }
+
+            $sql->execute(array($id));
+            $resultado = $sql->fetch();
+            return $resultado['Total'];
+        }
+
+        public static function countAlunosEmDP($id)
+        {
+            $sql = Conn::Conectar()->prepare("SELECT COUNT(alunos.ID) AS Total FROM grade INNER JOIN relacao_notas ON grade.ID = relacao_notas.GRADE INNER JOIN matricula ON relacao_notas.MATRICULA = matricula.ID INNER JOIN alunos ON matricula.ALUNO = alunos.ID WHERE ((grade.PROFESSOR = ?) AND (relacao_notas.SITUACAO = 'DP'))");
+            $sql->execute(array($id));
+            $resultado = $sql->fetch();
+            return $resultado['Total'];
+        }
+
+        public static function countTrabalhosVinculados($category,$id)
+        {
+            if($category == 'Aluno')
+            {
+                $sql = Conn::Conectar()->prepare("SELECT COUNT(trabalhos.ID) AS Total FROM matricula INNER JOIN grade ON matricula.CURSO = grade.CURSO INNER JOIN relacao_materia ON grade.ID = relacao_materia.GRADE INNER JOIN trabalhos ON relacao_materia.ID = trabalhos.RELACAO WHERE ((trabalhos.DATA_FIM > NOW()) AND (matricula.ALUNO = ?))");
+            }
+            else
+            {
+                $sql = Conn::Conectar()->prepare("SELECT COUNT(devolutiva_trabalhos.ID) AS Total FROM grade INNER JOIN relacao_materia ON grade.ID = relacao_materia.GRADE INNER JOIN trabalhos ON relacao_materia.ID = trabalhos.RELACAO INNER JOIN devolutiva_trabalhos ON trabalhos.ID = devolutiva_trabalhos.TRABALHO WHERE ((trabalhos.DATA_FIM > NOW()) AND (grade.PROFESSOR = ?))");
+            }
+            $sql->execute(array($id));
+            $resultado = $sql->fetch();
+            return $resultado['Total'];
+        }
+
+        public static function dataProximaProva($id)
+        {
+            $sql = Conn::Conectar()->prepare("SELECT provas.DATA AS Prova FROM matricula INNER JOIN grade ON matricula.CURSO = grade.CURSO INNER JOIN relacao_materia ON grade.ID = relacao_materia.GRADE INNER JOIN provas ON relacao_materia.ID = provas.RELACAO WHERE ((provas.DATA > NOW()) AND (matricula.ALUNO = ?))");
+            $sql->execute(array($id));
+            $resultado = $sql->fetch();
+            return $resultado['Prova'];
         }
     }
 ?>

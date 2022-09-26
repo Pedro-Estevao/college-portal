@@ -49,7 +49,7 @@
                     <div class="row">
                         <div class="col col-sm-9">
                             <?php include('src/pages/layout/charts.php'); ?>
-                            <?php include('src/pages/layout/tables.php'); ?>
+                            <?php //include('src/pages/layout/tables.php'); ?>
                         </div>
                         <div class="col col-sm-3">
                             <?php include('src/pages/layout/lateral-cards.php'); ?>

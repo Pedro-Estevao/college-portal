@@ -28,7 +28,26 @@
         }
     ?>
 
-    <p>Página de chat</p>
+    <div class="cn-content--main">
+        <main class="cn-main">
+            <div class="cn-main-content container chat-page">
+                <div class="cn-main-content--body">
+                    <div class="card cn-card">
+                        <div class="card-body">
+                            <div class="lateral-card--content">
+                                <div class="lateral-card--content-image">
+                                    <img src="<?php echo INCLUDE_PATH; ?>src/assets/img/figures/coming-soon.png" alt="comming soon" />
+                                </div>
+                                <div class="lateral-card--content-text text-center">
+                                    <span>Em breve</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <!-- jQuery first, then JQuery Mask, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>

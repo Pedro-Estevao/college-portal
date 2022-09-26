@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Set-2022 às 21:31
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Tempo de geração: 26-Set-2022 às 22:54
+-- Versão do servidor: 10.4.20-MariaDB
+-- versão do PHP: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -66,6 +66,31 @@ INSERT INTO `cursos` (`ID`, `CURSO`, `DESCRICAO`, `PERIODO`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `devolutiva_trabalhos`
+--
+
+CREATE TABLE `devolutiva_trabalhos` (
+  `ID` int(11) NOT NULL,
+  `DESCRICAO` varchar(500) DEFAULT NULL,
+  `DEVOLUTIVA` varchar(255) DEFAULT NULL,
+  `NOTA` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `SITUACAO` varchar(19) NOT NULL DEFAULT 'AGUARDANDO CORREÇÃO',
+  `MATRICULA` int(11) NOT NULL,
+  `TRABALHO` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `devolutiva_trabalhos`
+--
+
+INSERT INTO `devolutiva_trabalhos` (`ID`, `DESCRICAO`, `DEVOLUTIVA`, `NOTA`, `SITUACAO`, `MATRICULA`, `TRABALHO`) VALUES
+(1, 'Primeiro teste de devolução', 'primeiro-teste-devolucao.pdf', '0.00', 'AGUARDANDO CORREÇÃO', 1, 10),
+(2, 'Teste de devolução corrigida', 'primeiro-teste-devolucao.pdf', '0.98', 'CORRIGIDO', 1, 8),
+(5, 'Teste pós devolutiva dinâmica', 'dff4f4029f3f651ee161c8e788a360fe.pdf', '0.00', 'AGUARDANDO CORREÇÃO', 1, 11);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `grade`
 --
 
@@ -119,7 +144,7 @@ INSERT INTO `materias` (`ID`, `MATERIA`, `DESCRICAO`, `IMG`) VALUES
 
 CREATE TABLE `matricula` (
   `ID` int(11) NOT NULL,
-  `MATRICULA` varchar(255) NOT NULL,
+  `MATRICULA` varchar(255) DEFAULT NULL,
   `ALUNO` int(11) NOT NULL,
   `CURSO` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -134,6 +159,28 @@ INSERT INTO `matricula` (`ID`, `MATRICULA`, `ALUNO`, `CURSO`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `notas_provas`
+--
+
+CREATE TABLE `notas_provas` (
+  `ID` int(11) NOT NULL,
+  `DESCRICAO` varchar(500) NOT NULL,
+  `NOTA` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `SITUACAO` varchar(20) NOT NULL DEFAULT 'AGUARDANDO CORREÇÃO',
+  `MATRICULA` int(11) NOT NULL,
+  `PROVA` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `notas_provas`
+--
+
+INSERT INTO `notas_provas` (`ID`, `DESCRICAO`, `NOTA`, `SITUACAO`, `MATRICULA`, `PROVA`) VALUES
+(1, 'Muito bem, só preste um pouco mais de atenção.', '4.10', 'CORRIGIDO', 1, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `professores`
 --
 
@@ -141,6 +188,7 @@ CREATE TABLE `professores` (
   `ID` int(11) NOT NULL,
   `NOME` varchar(255) NOT NULL,
   `EMAIL` varchar(255) NOT NULL,
+  `CODIGO` varchar(255) DEFAULT NULL,
   `TELEFONE` varchar(11) NOT NULL,
   `IMG` varchar(255) DEFAULT NULL,
   `SENHA` varchar(255) NOT NULL
@@ -150,11 +198,11 @@ CREATE TABLE `professores` (
 -- Extraindo dados da tabela `professores`
 --
 
-INSERT INTO `professores` (`ID`, `NOME`, `EMAIL`, `TELEFONE`, `IMG`, `SENHA`) VALUES
-(1, 'Elon Musk', 'ellmusk@spacex.com', '21474836476', NULL, 'bf2c0220a6691b3cf8b2b10bcaf943eb'),
-(2, 'Thiago Nicola Cajuela Garcia', 'thiago.nicola@baraodemaua.br', '16996814577', NULL, 'd07ce551b3befa789094244e954b8560'),
-(3, 'Jean Jacques Georges Soares de Groote', 'jeangroot@outlook.com', '18985647312', NULL, '28bd300c00f6546db35d5863a1cac435'),
-(4, 'Heloisa Helena D. Oliveira Rocha Bidoia', 'helodrocha@msn.com', '17996748532', NULL, '5afa79aa04ae89bc65a865e775176550');
+INSERT INTO `professores` (`ID`, `NOME`, `EMAIL`, `CODIGO`, `TELEFONE`, `IMG`, `SENHA`) VALUES
+(1, 'Elon Musk', 'ellmusk@spacex.com', '1111111', '21474836476', NULL, 'bf2c0220a6691b3cf8b2b10bcaf943eb'),
+(2, 'Thiago Nicola Cajuela Garcia', 'thiago.nicola@baraodemaua.br', '2222222', '16996814577', NULL, 'd07ce551b3befa789094244e954b8560'),
+(3, 'Jean Jacques Georges Soares de Groote', 'jeangroot@outlook.com', '3333333', '18985647312', NULL, '28bd300c00f6546db35d5863a1cac435'),
+(4, 'Heloisa Helena D. Oliveira Rocha Bidoia', 'helodrocha@msn.com', '4444444', '17996748532', NULL, '5afa79aa04ae89bc65a865e775176550');
 
 -- --------------------------------------------------------
 
@@ -165,12 +213,20 @@ INSERT INTO `professores` (`ID`, `NOME`, `EMAIL`, `TELEFONE`, `IMG`, `SENHA`) VA
 CREATE TABLE `provas` (
   `ID` int(11) NOT NULL,
   `PROVA` varchar(255) NOT NULL,
-  `DATA` date NOT NULL,
+  `DATA` datetime NOT NULL,
   `DESCRICAO` varchar(500) NOT NULL,
   `MATERIAL` varchar(255) DEFAULT NULL,
-  `NOTA` decimal(2,2) NOT NULL,
   `RELACAO` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `provas`
+--
+
+INSERT INTO `provas` (`ID`, `PROVA`, `DATA`, `DESCRICAO`, `MATERIAL`, `RELACAO`) VALUES
+(1, 'Prova 3º Bimestre', '2022-09-19 19:10:00', 'Estudar tudo o que foi passado sobre javascript e funções.', NULL, 1),
+(2, 'Prova 4º Bimestre', '2022-11-28 19:10:00', 'A ser definido', 'd2f6b9fb361ff2ac317d35ff40539495.pdf', 1),
+(3, 'Prova 2º Bimestre', '2022-05-10 19:20:47', 'Teste de não realização de prova', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -181,13 +237,47 @@ CREATE TABLE `provas` (
 CREATE TABLE `relacao_materia` (
   `ID` int(11) NOT NULL,
   `SEMESTRE` int(1) NOT NULL,
-  `NOTA_1` decimal(2,2) NOT NULL DEFAULT 0.00,
-  `NOTA_2` decimal(2,2) NOT NULL DEFAULT 0.00,
-  `NOTA_FINAL` decimal(2,2) NOT NULL DEFAULT 0.00,
+  `GRADE` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `relacao_materia`
+--
+
+INSERT INTO `relacao_materia` (`ID`, `SEMESTRE`, `GRADE`) VALUES
+(1, 2, 1),
+(2, 2, 2),
+(3, 2, 3),
+(4, 2, 4),
+(5, 2, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `relacao_notas`
+--
+
+CREATE TABLE `relacao_notas` (
+  `ID` int(11) NOT NULL,
+  `SEMESTRE` int(1) NOT NULL,
+  `NOTA_1` decimal(10,2) DEFAULT 0.00,
+  `NOTA_2` decimal(10,2) DEFAULT 0.00,
+  `NOTA_FINAL` decimal(10,2) DEFAULT 0.00,
   `SITUACAO` varchar(15) NOT NULL DEFAULT 'CALCULANDO',
   `GRADE` int(11) NOT NULL,
-  `MATERIA` int(11) NOT NULL
+  `MATRICULA` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `relacao_notas`
+--
+
+INSERT INTO `relacao_notas` (`ID`, `SEMESTRE`, `NOTA_1`, `NOTA_2`, `NOTA_FINAL`, `SITUACAO`, `GRADE`, `MATRICULA`) VALUES
+(1, 2, '0.00', '0.00', '0.00', 'CALCULANDO', 1, 1),
+(2, 2, '0.00', '0.00', '0.00', 'CALCULANDO', 2, 1),
+(3, 2, '0.00', '0.00', '0.00', 'CALCULANDO', 3, 1),
+(4, 2, '0.00', '0.00', '0.00', 'CALCULANDO', 4, 1),
+(5, 2, '0.00', '0.00', '0.00', 'CALCULANDO', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -198,14 +288,22 @@ CREATE TABLE `relacao_materia` (
 CREATE TABLE `trabalhos` (
   `ID` int(11) NOT NULL,
   `TRABALHO` varchar(255) NOT NULL,
-  `DATA_INICIO` date NOT NULL,
-  `DATA_FIM` date NOT NULL,
+  `DATA_INICIO` datetime NOT NULL,
+  `DATA_FIM` datetime NOT NULL,
   `DESCRICAO` varchar(500) NOT NULL,
   `MATERIAL` varchar(255) DEFAULT NULL,
-  `DEVOLUTIVA` varchar(255) DEFAULT NULL,
-  `NOTA` decimal(2,2) DEFAULT 0.00,
   `RELACAO` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `trabalhos`
+--
+
+INSERT INTO `trabalhos` (`ID`, `TRABALHO`, `DATA_INICIO`, `DATA_FIM`, `DESCRICAO`, `MATERIAL`, `RELACAO`) VALUES
+(8, 'Variáveis', '2022-09-25 12:45:34', '2022-08-15 23:59:00', 'Complete a lista de exercícios, apenas texto. Não é necessário código.', 'f003616de0075137353c158d4d15a570.pdf', 1),
+(9, 'Protótipos', '2022-09-25 12:48:47', '2022-08-23 23:59:00', 'Verifique informações sobre o exercício no PDF em anexo.', 'd5e68535cb9b4a8a11e8629def80a5b9.pdf', 1),
+(10, 'Desenvolver Projeto', '2022-09-25 16:44:46', '2022-09-26 19:10:00', 'Desenvolver um projeto a sua escolha utilizando os conhecimentos aprendidos em aula.', 'e7f4c991320a870429fcc57e84b613e9.pdf', 1),
+(11, 'Desenvolver Calculadora Unity', '2022-09-25 18:42:18', '2022-10-10 23:59:00', 'Com base na aula de unity desenvolva uma calculadora.', '85a67544821af4f958de30a0e802ab7e.pdf', 1);
 
 --
 -- Índices para tabelas despejadas
@@ -222,6 +320,14 @@ ALTER TABLE `alunos`
 --
 ALTER TABLE `cursos`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- Índices para tabela `devolutiva_trabalhos`
+--
+ALTER TABLE `devolutiva_trabalhos`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `IDTRABALHO_DEVOLUTIVA` (`TRABALHO`),
+  ADD KEY `IDMATRICULA_DEVOLUTIVA` (`MATRICULA`);
 
 --
 -- Índices para tabela `grade`
@@ -243,14 +349,24 @@ ALTER TABLE `materias`
 --
 ALTER TABLE `matricula`
   ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `MATRICULA` (`MATRICULA`),
   ADD KEY `ALUNO` (`ALUNO`),
   ADD KEY `CURSO_MATRICULA` (`CURSO`);
+
+--
+-- Índices para tabela `notas_provas`
+--
+ALTER TABLE `notas_provas`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `IDPROVA_NOTAS` (`PROVA`),
+  ADD KEY `IDMATRICULA_NOTAS_PROVAS` (`MATRICULA`);
 
 --
 -- Índices para tabela `professores`
 --
 ALTER TABLE `professores`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `CODIGO` (`CODIGO`);
 
 --
 -- Índices para tabela `provas`
@@ -264,8 +380,15 @@ ALTER TABLE `provas`
 --
 ALTER TABLE `relacao_materia`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `IDGRADE_RELACAO` (`GRADE`),
-  ADD KEY `IDMATERIA_RELACAO` (`MATERIA`);
+  ADD KEY `IDGRADE_RELACAO` (`GRADE`);
+
+--
+-- Índices para tabela `relacao_notas`
+--
+ALTER TABLE `relacao_notas`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `IDGRADE_RELACAO_NOTAS` (`GRADE`),
+  ADD KEY `IDMATRICULA_RELACAO_NOTA` (`MATRICULA`);
 
 --
 -- Índices para tabela `trabalhos`
@@ -291,6 +414,12 @@ ALTER TABLE `cursos`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de tabela `devolutiva_trabalhos`
+--
+ALTER TABLE `devolutiva_trabalhos`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT de tabela `grade`
 --
 ALTER TABLE `grade`
@@ -309,6 +438,12 @@ ALTER TABLE `matricula`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de tabela `notas_provas`
+--
+ALTER TABLE `notas_provas`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de tabela `professores`
 --
 ALTER TABLE `professores`
@@ -318,23 +453,36 @@ ALTER TABLE `professores`
 -- AUTO_INCREMENT de tabela `provas`
 --
 ALTER TABLE `provas`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `relacao_materia`
 --
 ALTER TABLE `relacao_materia`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `relacao_notas`
+--
+ALTER TABLE `relacao_notas`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `trabalhos`
 --
 ALTER TABLE `trabalhos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restrições para despejos de tabelas
 --
+
+--
+-- Limitadores para a tabela `devolutiva_trabalhos`
+--
+ALTER TABLE `devolutiva_trabalhos`
+  ADD CONSTRAINT `IDMATRICULA_DEVOLUTIVA` FOREIGN KEY (`MATRICULA`) REFERENCES `matricula` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `IDTRABALHO_DEVOLUTIVA` FOREIGN KEY (`TRABALHO`) REFERENCES `trabalhos` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `grade`
@@ -352,6 +500,13 @@ ALTER TABLE `matricula`
   ADD CONSTRAINT `CURSO_MATRICULA` FOREIGN KEY (`CURSO`) REFERENCES `cursos` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Limitadores para a tabela `notas_provas`
+--
+ALTER TABLE `notas_provas`
+  ADD CONSTRAINT `IDMATRICULA_NOTAS_PROVAS` FOREIGN KEY (`MATRICULA`) REFERENCES `matricula` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `IDPROVA_NOTAS` FOREIGN KEY (`PROVA`) REFERENCES `provas` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Limitadores para a tabela `provas`
 --
 ALTER TABLE `provas`
@@ -361,8 +516,14 @@ ALTER TABLE `provas`
 -- Limitadores para a tabela `relacao_materia`
 --
 ALTER TABLE `relacao_materia`
-  ADD CONSTRAINT `IDGRADE_RELACAO` FOREIGN KEY (`GRADE`) REFERENCES `grade` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `IDMATERIA_RELACAO` FOREIGN KEY (`MATERIA`) REFERENCES `materias` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `IDGRADE_RELACAO` FOREIGN KEY (`GRADE`) REFERENCES `grade` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `relacao_notas`
+--
+ALTER TABLE `relacao_notas`
+  ADD CONSTRAINT `IDGRADE_RELACAO_NOTAS` FOREIGN KEY (`GRADE`) REFERENCES `grade` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `IDMATRICULA_RELACAO_NOTA` FOREIGN KEY (`MATRICULA`) REFERENCES `matricula` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `trabalhos`
