@@ -331,5 +331,80 @@
             $resultado = $sql->fetch();
             return $resultado['Prova'];
         }
+
+        public static function recuperaConfigUserAluno($id)
+        {
+            $sql = Conn::Conectar()->prepare("SELECT ID,NOME,EMAIL,TELEFONE FROM alunos WHERE ID = ?");
+            $sql->execute(array($id));
+            $resultado = $sql->fetch();
+            return $resultado;
+        }
+
+        public static function recuperaConfigUserProfessor($id)
+        {
+            $sql = Conn::Conectar()->prepare("SELECT ID,NOME,EMAIL,TELEFONE FROM professores WHERE ID = ?");
+            $sql->execute(array($id));
+            $resultado = $sql->fetch();
+            return $resultado;
+        }
+
+        // public static function updateConfigUserAluno($redirect = null)
+        // {
+        //     $idUser = $_POST['perfil-id'];
+        //     $nome = $_POST['perfil-nome'];
+        //     $email = $_POST['perfil-nome'];
+        //     $telefone = $_POST['perfil-nome'];
+        //     $senha = $_POST['perfil-nome'];
+
+        //     if(($idUser == '') && ($nome == '') && ($email == '') && ($telefone == ''))
+        //     {
+        //         header('Location: '.INCLUDE_PATH.$redirect);
+        //         Controle::alert('erro', 'O formulário está vazio');
+        //         die();
+        //     }
+        //     else if($idUser == '')
+        //     {
+        //         header('Location: '.INCLUDE_PATH.$redirect);
+        //         Controle::alert('erro', 'Usuário não encontrado');
+        //         die();
+        //     }
+        //     else if($nome == '')
+        //     {
+        //         header('Location: '.INCLUDE_PATH.$redirect);
+        //         Controle::alert('erro', 'Nome não informado');
+        //         die();
+        //     }
+        //     else if($email== '')
+        //     {
+        //         header('Location: '.INCLUDE_PATH.$redirect);
+        //         Controle::alert('erro', 'E-mail não informado');
+        //         die();
+        //     }
+        //     else if($telefone== '')
+        //     {
+        //         header('Location: '.INCLUDE_PATH.$redirect);
+        //         Controle::alert('erro', 'E-mail não informado');
+        //         die();
+        //     }
+        //     else
+        //     {
+        //         $sql = Conn::Conectar()->prepare("UPDATE devolutiva_trabalhos SET NOTA=?,SITUACAO=? WHERE ((MATRICULA = ?) AND (TRABALHO = ?))");
+        //         $sql->execute(array(str_replace(',', '.', $nota),'CORRIGIDO',Controle::recuperaDadosMatricula($idUser,'ID'),$idTrabalho));
+
+        //         // str_replace(',', '.', $nota)
+        //         if($sql->rowCount() == 1)
+        //         {
+        //             header('Location: '.INCLUDE_PATH.$redirect);
+        //             Controle::alert('sucesso', 'Correção enviada');
+        //             die();
+        //         }
+        //         else
+        //         {
+        //             header('Location: '.INCLUDE_PATH.$redirect);
+        //             Controle::alert('erro', 'Erro ao enviar correção');
+        //             die();
+        //         }
+        //     }
+        // }
     }
 ?>

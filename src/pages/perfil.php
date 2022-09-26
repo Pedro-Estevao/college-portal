@@ -1,3 +1,24 @@
+<?php
+if(isset($_SESSION['category']))
+{
+    $category = $_SESSION['category'];
+
+    if($category == 'Aluno')
+    {
+        $dados = Controle::recuperaConfigUserAluno($_SESSION['idUser']);
+    }
+    else
+    {
+        $dados = Controle::recuperaConfigUserProfessor($_SESSION['idUser']);
+    }
+}
+
+if(isset($_POST['update-info-user-submit']))
+{
+    // Controle::updateConfigUserAluno();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -49,24 +70,25 @@
                         </div>
                         <div class="perfil-card--info">
                             <form class="info-form" id="">
+                                <input type="hidden" name="perfil-id" value="<?= $dados['ID'] ?>" />
                                 <div class="form-group">
-                                    <input type="text" id="perfil-nome" name="perfil-nome" class="info-form--input" placeholder="Informe o nome" required />
+                                    <input type="text" id="perfil-nome" name="perfil-nome" class="info-form--input" placeholder="Informe o nome" value="<?= $dados['NOME'] ?>" required />
                                     <label for="perfil-nome" class="info-form--label">Nome</label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" id="perfil-nome" name="perfil-nome" class="info-form--input" placeholder="Informe o e-mail" required />
-                                    <label for="perfil-nome" class="info-form--label">E-mail</label>
+                                    <input type="text" id="perfil-email" name="perfil-email" class="info-form--input" placeholder="Informe o e-mail" value="<?= $dados['EMAIL'] ?>" required />
+                                    <label for="perfil-email" class="info-form--label">E-mail</label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" id="perfil-nome" name="perfil-nome" class="info-form--input" placeholder="Informe o telefone" required />
-                                    <label for="perfil-nome" class="info-form--label">Telefone</label>
+                                    <input type="text" id="perfil-telefone" name="perfil-telefone" class="info-form--input" placeholder="Informe o telefone" value="<?= $dados['TELEFONE'] ?>" required />
+                                    <label for="perfil-telefone" class="info-form--label">Telefone</label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" id="perfil-nome" name="perfil-nome" class="info-form--input" placeholder="Informe a nova senha" required />
-                                    <label for="perfil-nome" class="info-form--label">Senha</label>
+                                    <input type="text" id="perfil-pass" name="perfil-pass" class="info-form--input" placeholder="Informe a nova senha" />
+                                    <label for="perfil-pass" class="info-form--label">Senha</label>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-default info-form--submit mb-0">ENTRAR</button>
+                                    <button type="submit" name="update-info-user-submit" class="btn btn-default info-form--submit mb-0">ENTRAR</button>
                                 </div>
                             </form>
                         </div>
