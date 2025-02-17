@@ -59,14 +59,14 @@ if(isset($_POST['update-info-user-submit']))
                                 <div class="perfil-card--image-content__moldura">
                                     <img class="perfil-card--image-content__moldura--container" src="<?php echo INCLUDE_PATH; ?>src/assets/img/mold-3.png" />
                                     <div class="perfil-card--image-content__moldura-content">
-                                        <img class="" src="<?php echo INCLUDE_PATH; ?>src/assets/img/usuarios/pedro.jpeg" alt="Imagem Perfil" />
+                                        <img class="" src="<?php echo INCLUDE_PATH; ?>src/assets/img/usuarios/<?= $dados['IMG'] ?>" alt="Imagem Perfil" />
                                     </div>
                                 </div>
                             </div>
-                            <div class="perfil-card--image-name">
+                            <!-- <div class="perfil-card--image-name">
                                 <h3 class="perfil-name mb-0">Pedro Estevão Paulista</h3>
                                 <p class="perfil-curso mb-0">Ciência da Computação</p>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="perfil-card--info">
                             <form class="info-form" id="">
@@ -88,7 +88,7 @@ if(isset($_POST['update-info-user-submit']))
                                     <label for="perfil-pass" class="info-form--label">Senha</label>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" name="update-info-user-submit" class="btn btn-default info-form--submit mb-0">ENTRAR</button>
+                                    <button type="submit" name="update-info-user-submit" class="btn btn-default info-form--submit mb-0">SALVAR</button>
                                 </div>
                             </form>
                         </div>

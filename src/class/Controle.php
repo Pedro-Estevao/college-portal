@@ -334,7 +334,7 @@
 
         public static function recuperaConfigUserAluno($id)
         {
-            $sql = Conn::Conectar()->prepare("SELECT ID,NOME,EMAIL,TELEFONE FROM alunos WHERE ID = ?");
+            $sql = Conn::Conectar()->prepare("SELECT ID,NOME,EMAIL,IMG,TELEFONE FROM alunos WHERE ID = ?");
             $sql->execute(array($id));
             $resultado = $sql->fetch();
             return $resultado;
@@ -342,7 +342,7 @@
 
         public static function recuperaConfigUserProfessor($id)
         {
-            $sql = Conn::Conectar()->prepare("SELECT ID,NOME,EMAIL,TELEFONE FROM professores WHERE ID = ?");
+            $sql = Conn::Conectar()->prepare("SELECT ID,NOME,EMAIL,IMG,TELEFONE FROM professores WHERE ID = ?");
             $sql->execute(array($id));
             $resultado = $sql->fetch();
             return $resultado;

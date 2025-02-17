@@ -12,11 +12,11 @@ $autoload = function($class) {
 
 spl_autoload_register($autoload);
 
-define('INCLUDE_PATH','http://localhost/Faculdade/Controle-de-notas/');
+define('INCLUDE_PATH','http://localhost/Pessoal/Controle-de-notas/');
 
 define('HOST','localhost');
 define('USER','root');
-define('PASS','');
+define('PASS','wizard');
 define('DB','universidade');
 
 Conn::Conectar();
