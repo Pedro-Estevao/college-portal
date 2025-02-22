@@ -42,8 +42,8 @@ This was one of my **first academic projects**, developed early in my university
 ### ⚡ Installation Steps
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Pedro-Estevao/Controle-de-notas.git
-   cd Controle-de-notas
+   git clone https://github.com/Pedro-Estevao/college-portal.git
+   cd college-portal
    ```
 2. **Set up the database:**
    - Import the `src/bd/universidade.sql` file into MySQL.
@@ -55,7 +55,7 @@ This was one of my **first academic projects**, developed early in my university
      php -S localhost:8000
      ```
 4. **Access the portal:**
-   - Open a browser and go to `http://localhost/Controle-de-notas/`
+   - Open a browser and go to `http://localhost/college-portal/`
 
 ---
 
