@@ -42,7 +42,7 @@ This was one of my **first academic projects**, developed early in my university
 ### ⚡ Installation Steps
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Pedro-Estevao/college-portal.git
+   git clone https://github.com/pedroestevaodev/college-portal.git
    cd college-portal
    ```
 2. **Set up the database:**
